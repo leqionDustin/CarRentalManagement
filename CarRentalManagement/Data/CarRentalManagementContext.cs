@@ -14,12 +14,16 @@ namespace CarRentalManagement.Data
         public DbSet<Vehicle> Vehicle { get; set; } = default!;
         public DbSet<Booking> Booking { get; set; } = default!;
         public DbSet<Customer> Customer { get; set; } = default!;
+   
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
             builder.ApplyConfiguration(new ColourSeed());
             builder.ApplyConfiguration(new MakeSeed());
             builder.ApplyConfiguration(new ModelSeed());
+            builder.ApplyConfiguration(new RoleSeed());
+            builder.ApplyConfiguration(new UserSeed());
+            builder.ApplyConfiguration(new UserRoleSeed());
         }
     }
 }
